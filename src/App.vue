@@ -39,6 +39,7 @@ const filteredTasks = computed(() => {
 </script>
 
 <template>
+  <h1 class="text-red-500">Task Management</h1>
   <input type="text" v-model="newTask" @keyup.enter="addTask">
   <button @click="addTask">Add Task</button>
   <select v-model="filtered">
