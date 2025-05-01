@@ -8,13 +8,19 @@ function addTask() {
   if (newTask.value.trim() !== '') {
     tasks.value.push({
       id: Date.now(),
-      text: newTask.value, 
-      completed: false 
+      text: newTask.value,
+      completed: false
     })
     newTask.value = ''
     console.log(tasks.value)
   }
 }
+
+const toggleDone = (task) => {
+  task.completed == !task.completed
+  console.log(task.completed)
+}
+
 </script>
 
 <template>
@@ -23,11 +29,10 @@ function addTask() {
 
   <ul>
     <li v-for="task in tasks" :key="task.id">
-      {{  task.text }}
+      <input type="checkbox" v-model="task.completed" @change="toggleDone(task)">
+      {{ task.text }}
     </li>
   </ul>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
